@@ -27,6 +27,9 @@ python3 01_04_dobokocka.py
 
 - [Tökéletlenek Python 01](https://www.youtube.com/watch?v=4tFhVLQuHOM&t=28s&ab_channel=T%C3%B6k%C3%A9letlenek)
 - [Cursor - The AI Code Editor](https://www.cursor.com/)
+- [Py package index](https://pypi.org/)
+- [Python exercises](https://www.geeksforgeeks.org/python-exercises-practice-questions-and-solutions/)
+- [Practice Python](https://www.practicepython.org/)
 - [Python tutorial](https://www.learnpython.org/)
 - [Python tutorial 2](https://www.w3schools.com/python/)
 - [Python tutorial 3](https://www.programiz.com/python-programming)
