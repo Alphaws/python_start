@@ -13,7 +13,17 @@ def main():
         
         gyufak -= jatekos_huzas
         print(f"Elvettél {jatekos_huzas} gyufát. A kupacban {gyufak} gyufa maradt.")
+        if gyufak > 0:
+            gep_huzas = random.randint(1, 3)
+            gyufak -= gep_huzas
+            print(f"A gép {gep_huzas} gyufát húzott. A kupacban {gyufak} gyufa maradt.")
+            if gyufak <= 0:
+                print("A gép vesztett!")
+                break
+        else:
+            print("A játékos vesztett!")
+            break
     print("A játéknak vége!")
-
+    
 if __name__ == "__main__":
     main() 
