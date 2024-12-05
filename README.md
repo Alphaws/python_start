@@ -17,10 +17,27 @@ cd python_start
 ## Használat
 
 ```bash
+# Alapok
 python3 01_01_hello_world.py
 python3 01_02_hello_name.py
 python3 01_03_szamok_osszege.py
 python3 01_04_dobokocka.py
+
+# Listák és ciklusok
+python3 03_01_range.py
+python3 03_03_lista_peldak.py
+
+# GUI alkalmazások
+python3 04_01_ablakproba.py
+python3 04_01_ablakproba_tkinter.py
+python3 04_02_ablakproba_qt.py
+python3 04_03_nim_window.py
+
+# Játékok és algoritmusok
+python3 05_01_min_max_in_array.py
+python3 05_02_ko_papir_ollo.py
+python3 05_03_poker_hand.py
+python3 05_04_faktorialis.py
 ```
 
 ## Hasznos linkek
