@@ -1,6 +1,7 @@
 """
 NIM játék grafikus felülettel
 A játékosok felváltva vehetnek el 1-3 követ. Az veszít, aki az utolsó követ veszi el.
+A kövek grafikusan is megjelennek emoji formájában.
 """
 
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QLabel, 
@@ -8,6 +9,7 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QLabel,
                            QWidget, QMessageBox)
 from PyQt6.QtCore import Qt
 import sys
+import random
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -15,10 +17,10 @@ class MainWindow(QMainWindow):
         
         # Ablak beállításai
         self.setWindowTitle("NIM Játék")
-        self.setFixedSize(400, 300)
+        self.setFixedSize(600, 400)  # Nagyobb ablakméret a kövek megjelenítéséhez
         
         # Játék változók inicializálása
-        self.kovek_szama = 20
+        self.kovek_szama = random.randint(15, 25)  # Kevesebb kő, hogy jobban látszódjon
         self.aktualis_jatekos = 1
         
         # Központi widget létrehozása
@@ -35,6 +37,13 @@ class MainWindow(QMainWindow):
         self.allapot_cimke.setAlignment(Qt.AlignmentFlag.AlignCenter)
         elrendezes.addWidget(self.allapot_cimke)
         
+        # Kövek megjelenítése
+        self.kovek_cimke = QLabel()
+        self.kovek_cimke.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.kovek_cimke.setWordWrap(True)  # Sortörés engedélyezése
+        self.kovek_frissitese()
+        elrendezes.addWidget(self.kovek_cimke)
+        
         # Gombok létrehozása
         gombok_sora = QHBoxLayout()
         
@@ -45,10 +54,19 @@ class MainWindow(QMainWindow):
         
         elrendezes.addLayout(gombok_sora)
     
+    def kovek_frissitese(self):
+        """Kövek grafikus megjelenítésének frissítése"""
+        # 🪨 emoji használata a kövek megjelenítéséhez
+        kovek_szoveg = "🪨 " * self.kovek_szama
+        self.kovek_cimke.setText(kovek_szoveg)
+    
     def kovek_elvetele(self, elvett_kovek):
         """Kövek elvétele és játékállapot frissítése"""
         if elvett_kovek <= self.kovek_szama:
             self.kovek_szama -= elvett_kovek
+            
+            # Kövek grafikus megjelenítésének frissítése
+            self.kovek_frissitese()
             
             # Játék vége ellenőrzése
             if self.kovek_szama == 0:
