@@ -16,13 +16,12 @@ cd python_start
 
 ## Használat
 
-A projekt tartalmaz egy egyszerű Hello World programot. Futtatáshoz használd a következő parancsot:
-
 ```bash
-python3 00_hello_world.py
+python3 01_01_hello_world.py
+python3 01_02_hello_name.py
+python3 01_03_szamok_osszege.py
+python3 01_04_dobokocka.py
 ```
-
-A program kiírja a képernyőre: "Hello, World!"
 
 ## Hasznos linkek
 
