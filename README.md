@@ -47,6 +47,7 @@ python3 05_04_faktorialis.py
 - [Py package index](https://pypi.org/)
 - [Python exercises](https://www.geeksforgeeks.org/python-exercises-practice-questions-and-solutions/)
 - [Practice Python](https://www.practicepython.org/)
+- [Python Challenge](https://edabit.com/challenges)
 - [Python tutorial](https://www.learnpython.org/)
 - [Python tutorial 2](https://www.w3schools.com/python/)
 - [Python tutorial 3](https://www.programiz.com/python-programming)
