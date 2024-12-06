@@ -1,35 +1,28 @@
 import datetime
 from peewee import SqliteDatabase, Model, CharField, DateField, IntegerField, ForeignKeyField
 
-db = SqliteDatabase('neptun100.db')
+db = SqliteDatabase("neptun100.db")
 
 class Student(Model):
     name = CharField(max_length=255)
     birthdate = DateField()
-    id = IntegerField(primary_key=True)
 
     class Meta:
         database = db
 
 class Subject(Model):
     name = CharField(max_length=255)
-    id = IntegerField(primary_key=True)
 
     class Meta:
         database = db
 
 class Mark(Model):
-    student = ForeignKeyField(Student, backref='marks')
-    subject = ForeignKeyField(Subject, backref='marks')
+    student = ForeignKeyField(Student, backref="marks")
+    subject = ForeignKeyField(Subject, backref="marks")
     mark = IntegerField()
 
     class Meta:
         database = db
-
-def list_students():
-    students = Student.select()
-    for student in students:
-        print(student.name, student.birthdate)
 
 def init_db():
     db.create_tables([Student, Subject, Mark])
@@ -44,6 +37,19 @@ def fill_db():
     magyar = Subject(name="Magyar")
     magyar.save()
 
+def give_mark_demo():
+    gipsz_jakab = Student.get(name="Gipsz Jakab")
+    matek = Subject.get(name="Matek")
+    Mark(student=gipsz_jakab, subject=matek, mark=5).save()
+
+def list_students():
+    for student in Student.select():
+        print(student.name)
+        for mark in student.marks:
+            print(f"    {mark.subject.name}: {mark.mark}")
+
 if __name__ == "__main__":
     init_db()
     fill_db()
+    give_mark_demo()
+    list_students()
